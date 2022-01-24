@@ -16,6 +16,7 @@ export const ContainerLoading = styled.div`
   width: 100%;
   flex: 5;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -143,3 +144,77 @@ export const SkeletonWave = styled.div`
 
   animation: ${shine} 1s infinite;
 `;
+
+const load = keyframes`
+  0% {
+    left: 0;
+  }
+
+  25% {
+    left: 90px;
+  }
+  50% {
+    left: -90px;
+  }
+  100%{
+    left: 0px;
+  }
+`;
+
+export const LoadingLinear = styled.div`
+  width: 400px;
+  height: 16px;
+  border-radius: 16px;
+  overflow-x: hidden;
+
+  background-color: #fff;
+  z-index: 10;
+
+  position: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    z-index: 5;
+    overflow-x: hidden;
+
+    width: 400px;
+    height: 100%;
+
+    background: rgb(171, 171, 171);
+    background: linear-gradient(
+      90deg,
+      rgba(219, 219, 219, .3) 0%,
+      rgba(219, 219, 219, 1) 50%,
+      rgba(219, 219, 219, .3) 100%
+    );
+
+    animation: ${load} 2s infinite linear;
+  }
+`;
+
+const loader = keyframes`
+from {
+    background-position: -100% 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+`
+
+export const SkeletonTest = styled.div`
+  background: linear-gradient(
+    90deg,
+    hsl(210, 15%, 88%),
+    hsl(210, 15%, 95%),
+    hsl(210, 15%, 88%)
+  );
+  background-size: 200%;
+  animation: ${loader} 1s infinite reverse;
+  height: 30px;
+  width: 400px;
+  margin-bottom: 1rem;
+`

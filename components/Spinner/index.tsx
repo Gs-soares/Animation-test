@@ -4,7 +4,9 @@ import {
   Loading,
   SpinTest,
   SpinnerArounded,
-  SkeletonWave
+  SkeletonWave,
+  LoadingLinear,
+  SkeletonTest
 } from './styles';
 
 export default function Spinner() {
@@ -15,6 +17,11 @@ export default function Spinner() {
           <SpinTest />
           <SpinnerArounded />
           <SkeletonWave />
+          <LoadingLinear />
+          <SkeletonTest />
+          <SkeletonTest />
+          <SkeletonTest />
+          <SkeletonTest />
         </ContainerLoading>
     </Container>
   );
